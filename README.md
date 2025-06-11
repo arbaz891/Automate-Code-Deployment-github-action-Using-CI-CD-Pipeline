@@ -23,20 +23,25 @@ npm install
 npm start
 Visit: http://localhost:5000
 
-**## 🐳 Running the App with Docker**
+---
+
+🐳 Running the App with Docker
 
 ```bash
 docker build -t <your-dockerhub-username>/nodejs-demo-app .
 docker run -p 3000:5000 <your-dockerhub-username>/nodejs-demo-app
 
-**## ⚙️ GitHub Actions CI/CD Workflow**
+---
+
+## ⚙️ GitHub Actions CI/CD Workflow
 
 ```bash
 The GitHub Actions workflow is located at:
 .github/workflows/main.yml
 
+---
 
-**### ✅ What it Does**
+✅ What it Does
 
 - ✅ Triggers on push to `main`
 - 🛠️ Checks out the code
@@ -48,7 +53,7 @@ The GitHub Actions workflow is located at:
 
 ---
 
-**## 🔐 Setup GitHub Secrets**
+🔐 Setup GitHub Secrets
 
 Go to your repository → **Settings > Secrets and variables > Actions**, and add the following secrets:
 
@@ -57,8 +62,9 @@ Go to your repository → **Settings > Secrets and variables > Actions**, and ad
 | `DOCKER_USERNAME` | Your Docker Hub username           |
 | `DOCKER_PASSWORD` | Your Docker Hub password or token  |
 
+---
 
-**## 🧪 Trigger the Pipeline**
+🧪 Trigger the Pipeline
 
 Any push to the `main` branch will automatically trigger the CI/CD workflow:
 
@@ -69,7 +75,7 @@ git push origin main
 
 ---
 
-**## 📁 Project Structure**
+📁 Project Structure
 
 nodejs-demo-app/
 ├── .github/
@@ -82,5 +88,5 @@ nodejs-demo-app/
 
 ---
 
-### 🙌 Acknowledgments
+🙌 Acknowledgments
 Built for learning purposes — demonstrating how to implement CI/CD using GitHub Actions and Docker in a Node.js environment.
