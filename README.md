@@ -1,92 +1,86 @@
-# Node.js Sample App with CI/CD Pipeline using GitHub Actions and Docker
+# 🚀 Node.js Sample App with CI/CD Pipeline using GitHub Actions & Docker
 
-A simple Node.js app with an automated CI/CD pipeline that builds and pushes a Docker image to Docker Hub whenever you push to the `main` branch.
+A simple Node.js web app that demonstrates how to automate build and deployment using **GitHub Actions** and **Docker Hub**. Every push to the `main` branch triggers a CI/CD workflow that builds a Docker image and pushes it to Docker Hub.
 
 ---
 
-## Getting Started
+## 📦 Prerequisites
 
-### Prerequisites
-
-Make sure you have the following installed:
+Make sure the following are installed on your system:
 
 - [Git](https://git-scm.com/)
-- [Docker](https://docs.docker.com/get-docker/)
-- [Node.js](https://nodejs.org/) (for local testing)
+- [Docker](https://www.docker.com/)
+- [Node.js](https://nodejs.org/)
 
 ---
 
-### Running Locally
+## 🏁 Running the App Locally
 
 ```bash
 git clone https://github.com/<your-github-username>/nodejs-demo-app.git
 cd nodejs-demo-app
 npm install
 npm start
+Visit: http://localhost:5000
 
-The app will run at http://localhost:5000.
-
----
-
-### Running with Docker
-Build and run the Docker container locally:
+**## 🐳 Running the App with Docker**
 
 ```bash
-docker build -t <dockerhub-username>/nodejs-demo-app .
-docker run -p 5000:5000 <dockerhub-username>/nodejs-demo-app
+docker build -t <your-dockerhub-username>/nodejs-demo-app .
+docker run -p 3000:5000 <your-dockerhub-username>/nodejs-demo-app
 
-Visit http://localhost:5000 to see the app.
-
----
-
-### CI/CD Pipeline with GitHub Actions
-This repo contains a GitHub Actions workflow located at .github/workflows/main.yml which does the following on every push to the main branch:
-
-Checks out the repo
-
-Sets up Docker Buildx builder
-
-Logs into Docker Hub using secrets stored in the repo settings
-
-Builds the Docker image
-
-Pushes the image to Docker Hub (<dockerhub-username>/nodejs-demo-app:latest)
-
-Logs out from Docker Hub
-
----
-
-### Setting up GitHub Secrets
+**## ⚙️ GitHub Actions CI/CD Workflow**
 
 ```bash
-Go to your repo’s Settings > Secrets and variables > Actions and add:
+The GitHub Actions workflow is located at:
+.github/workflows/main.yml
 
-Secret Name	Description
-DOCKER_USERNAME	Your Docker Hub username
-DOCKER_PASSWORD	Your Docker Hub password or token
+
+**### ✅ What it Does**
+
+- ✅ Triggers on push to `main`
+- 🛠️ Checks out the code
+- 🐳 Sets up Docker Buildx
+- 🔐 Logs in to Docker Hub using GitHub Secrets
+- 📦 Builds the Docker image
+- 🚀 Pushes it to Docker Hub
+- 🔓 Logs out from Docker
 
 ---
 
-### How to Trigger Deployment
+**## 🔐 Setup GitHub Secrets**
 
-Commit and push your changes to the main branch:
+Go to your repository → **Settings > Secrets and variables > Actions**, and add the following secrets:
 
+| Name              | Description                        |
+|-------------------|------------------------------------|
+| `DOCKER_USERNAME` | Your Docker Hub username           |
+| `DOCKER_PASSWORD` | Your Docker Hub password or token  |
+
+
+**## 🧪 Trigger the Pipeline**
+
+Any push to the `main` branch will automatically trigger the CI/CD workflow:
+
+```bash
 git add .
-git commit -m "Your commit message"
+git commit -m "your message"
 git push origin main
--This will trigger the GitHub Actions workflow to build and deploy your updated Docker image automatically.
 
 ---
 
-### Project Structure
-
-```bash
+**## 📁 Project Structure**
 
 nodejs-demo-app/
 ├── .github/
 │   └── workflows/
-│       └── main.yml            # GitHub Actions pipeline
-├── Dockerfile                  # Dockerfile to containerize app
-├── index.js                    # Node.js app entry point
-├── package.json                # Node.js dependencies and scripts
-└── README.md                   # Project documentation
+│       └── main.yml          # GitHub Actions CI/CD pipeline
+├── Dockerfile                # Docker container config
+├── index.js                  # Node.js application file
+├── package.json              # Node project dependencies
+└── README.md                 # Project documentation
+
+---
+
+### 🙌 Acknowledgments
+Built for learning purposes — demonstrating how to implement CI/CD using GitHub Actions and Docker in a Node.js environment.
