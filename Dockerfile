@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #dockerfile
 
 # Use the official Node.js base image (lightweight Alpine Linux)
@@ -18,4 +19,18 @@ COPY . .
 # Command to run your app
 CMD [ "npm" , "start" ]
 
+=======
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["node", "index.js"]
+>>>>>>> 00ce7d8 (Initial commit)
 
